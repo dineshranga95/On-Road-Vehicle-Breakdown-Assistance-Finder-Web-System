@@ -55,8 +55,8 @@
               <p>About Us</p>
             </a>
           </li>
-          <li class="{{'regrole' ==request()->path() ?'active' :''}}">
-            <a href="/regrole">
+          <li class="{{'reg-role' ==request()->path() ?'active' :''}}">
+            <a href="/reg-role">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profile</p>
             </a>

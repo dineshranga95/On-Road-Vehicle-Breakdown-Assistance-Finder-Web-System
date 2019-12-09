@@ -25,10 +25,10 @@ Route::group(['middleware'=>['auth','admin']], function(){
         return view('admin.dashboard');
     }); 
     
-    Route::get('/regrole','admin\dashboardcontroller@register');
-    Route::get('/role-edit/{id}','admin\dashboardcontroller@registeredit');
-    Route::PUT('/register-update/{id}','admin\dashboardcontroller@registerupdate');
-    Route::delete('/role-delete/{id}','admin\dashboardcontroller@registerdelete');
+    Route::get('/reg-role','admin\dashboardcontroller@register');
+    Route::get('/edit-role/{id}','admin\dashboardcontroller@registeredit');
+    Route::PUT('/update-register/{id}','admin\dashboardcontroller@registerupdate');
+    Route::delete('/delete/{id}','admin\dashboardcontroller@registerdelete');
 
     Route::get('/regcustomers','admin\customController@register');
     Route::get('/regmechanics','admin\mechanicController@register');

@@ -20,13 +20,13 @@ class dashboardcontroller extends Controller
         $user->name=$request->input('username');
         $user->usertype=$request->input('usertype');
         $user->update();  
-        return redirect ('/regrole')->with('status','Your data is updated');
+        return redirect ('/reg-role')->with('status','Your data is updated');
      }
 
         public function registerdelete($id){
         $user=User::findOrFail($id);
         $user->delete();  
-        return redirect ('/regrole')->with('status','Your data is deleted');
+        return redirect ('/reg-role')->with('status','Your data is deleted');
      }
      
      

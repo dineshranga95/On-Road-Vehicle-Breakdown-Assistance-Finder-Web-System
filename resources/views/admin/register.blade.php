@@ -75,10 +75,10 @@
                         {{ $row->gender}}
                        </td>
                       <td class="text-right">
-                        <a href="/role-edit/{{$row->id}}" class="btn btn-success">EDIT</a>
+                        <a href="/edit-role/{{$row->id}}" class="btn btn-success">EDIT</a>
                       </td>
                       <td class="text-right">
-                        <form action="/role-delete/{{$row->id}}" method="post" >
+                        <form action="/delete/{{$row->id}}" method="post" >
                          {{ csrf_field()}}
                          {{method_field('DELETE')}}
                           <button type="submit" class="btn btn-danger">DELETE</button>
