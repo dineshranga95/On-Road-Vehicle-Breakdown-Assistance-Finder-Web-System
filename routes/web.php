@@ -41,12 +41,12 @@ Route::group(['middleware'=>['auth','mechanic']], function(){
     Route::get('/dashboard1', function () {
         return view('mechanic.dashboard1');
     }); 
-    Route::get('/regrole', function () {
-        return view('mechanic.register');
-    });
-     
+    Route::get('/regrole','mechanic\dashboardcontroller@register');
+    Route::get('/reg-edit','mechanic\dashboardcontroller@edit');
+    Route::POST('/reg-update','mechanic\dashboardcontroller@update');
    
 
+    
 });
 Route::group(['middleware'=>['auth','custom']], function(){
     Route::get('/dashboard2', function () {
@@ -54,9 +54,7 @@ Route::group(['middleware'=>['auth','custom']], function(){
     }); 
     
     Route::get('/melist','custom\CustomerController@register');
-    Route::get('/regrole-add','custom\CustomerController@add'); 
-
-
+    
 });
 
 

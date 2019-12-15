@@ -2,7 +2,7 @@
 
 
 @section('title')
-   Registered Mechanics
+   user profile
 @endsection
         
 
@@ -61,11 +61,12 @@
                     </tr>
                    <tr> 
                         <td class="text-right">
-                        <a href="/regrole-add" class="btn btn-success">add</a>
+                        <a href="/reg-edit" class="btn btn-success">Edit details</a>
                       </td>
-                      <td class="">
-                            <a href="" class="btn btn-success">update</a>
-                          </td>
+                       
+                      <td class="text-left">
+                        <a href="/add" class="btn btn-success"></a>
+                      </td>
                     </tr>
                 </tbody>                      
                                         
