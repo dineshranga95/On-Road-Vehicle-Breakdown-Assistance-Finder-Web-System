@@ -37,13 +37,6 @@ class dashboardcontroller extends Controller
                     'email' => ['required', 'string', 'email', 'max:255'],                                
                      'gender'=> ['sometimes','string'],
                 ]);
-            }else{
-                $validate=$request->validate([
-                    'name'=>'required|min:2',
-                    'email'=>'required|email ',
-                    'location' => ['required', 'string', 'max:255'],
-                    'gender'=> ['sometimes','string'],
-                ]);
             }
             if($validate){
                 $user->name=$request['name'];

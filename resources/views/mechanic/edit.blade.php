@@ -11,7 +11,7 @@
 <div class="container ">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-dark text-white"  style="margin:10px">
+            <div class="card bg-secondary text-white"  style="margin:10px">
                 <div class="card-header">{{ __('Update profile') }}</div>
 
                 <div class="card-body">
@@ -23,7 +23,7 @@
                         </div>
                         @endif
                         <div class="form-group row">
-                        <label for="name"  class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <label for="name"  class="col-md-4 col-form-label text-md-right text-white">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" value="{{$user['name']}}" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                                <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
+                                <label for="location" class="col-md-4 col-form-label text-md-right text-white">{{ __('Location') }}</label>
     
                                 <div class="col-md-6">
                                     <input id="location" value="{{$user['location']}}" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location" autofocus>
@@ -50,7 +50,7 @@
                             </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right text-white">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" value="{{$user['email']}}" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -65,7 +65,7 @@
                        
                          
                         <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                                <label for="gender" class="col-md-4 col-form-label text-md-right text-white">{{ __('Gender') }}</label>
     
                                 <div class="col-md-6">
                                 <select class="form-control" name="gender">
