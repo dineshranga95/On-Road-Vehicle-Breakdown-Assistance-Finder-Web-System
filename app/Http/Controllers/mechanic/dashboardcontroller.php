@@ -36,12 +36,17 @@ class dashboardcontroller extends Controller
                     'location' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'email', 'max:255'],                                
                      'gender'=> ['sometimes','string'],
+                     'phone' =>  ['required', 'max:10', 'min:10'], 
+                     'servicetype' => ['sometimes','string'],
+                     'usertype' => ['sometimes','string'],
                 ]);
             }
             if($validate){
                 $user->name=$request['name'];
                 $user->email=$request['email'];
                 $user->location=$request['location'];
+                $user->phone=$request['phone'];
+                $user->servicetype=$request['servicetype'];
                 $user->gender=$request['gender'];
                 $user->save();
                 $request->session()->flash('success','Your details have now been updated!');

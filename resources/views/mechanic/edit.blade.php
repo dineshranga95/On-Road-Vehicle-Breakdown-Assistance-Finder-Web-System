@@ -74,8 +74,31 @@
                                 </select>                                  
                                 </div>
                             </div>
-
-
+                            <div class="form-group row">
+                                <label for="phone" class="col-md-4 col-form-label text-md-right text-white">{{ __('PHONE') }}</label>
+    
+                                <div class="col-md-6">
+                                    <input id="phone" value="{{$user['phone']}}" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+    
+                                    @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="servicetype" class="col-md-4 col-form-label text-md-right text-white">{{ __('SERVICE TYPE') }}</label>
+    
+                                <div class="col-md-6">
+                                <select class="form-control" name="servicetype">
+                                  <option value="2 wheeler" >2 wheeler</option>
+                                  <option value="3 wheeler" >3 wheeler</option>
+                                  <option value="4 wheeler" >4 wheeler</option>
+                                  <option value="all" >all</option>
+                                </select>                                  
+                                </div>
+                            </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
