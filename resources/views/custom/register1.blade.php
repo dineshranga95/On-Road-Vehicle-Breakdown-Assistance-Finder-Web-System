@@ -24,9 +24,7 @@
               <div class="table-responsive">
                 <table class="table">
                   <thead class=" text-primary">
-                      <th>
-                          Id
-                        </th>
+                      
                     <th>
                       Name
                     </th>
@@ -37,11 +35,14 @@
                       Email
                     </th>
                     <th>
-                    Usertype
+                   Service Type
                     </th>
                     <th>
-                     Gender 
+                     Phone
                     </th>
+                    <th>
+                      Gender 
+                     </th>
                    
                   </thead>
                   <tbody>
@@ -49,9 +50,7 @@
                           
                      
                     <tr>
-                      <td>
-                         {{ $row->id}}
-                     </td>
+                      
                       <td>
                      {{ $row->name}}
                       </td>
@@ -64,8 +63,11 @@
                            
                       
                       <td>
-                       {{ $row->usertype}}
+                       {{ $row->servicetype}}
                       </td>
+                       <td>
+                        {{ $row->phone}}
+                       </td>
                        <td>
                         {{ $row->gender}}
                        </td>

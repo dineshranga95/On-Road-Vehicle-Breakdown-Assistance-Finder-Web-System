@@ -25,23 +25,29 @@
                 <table class="table">
                   <thead class=" text-primary">
                       <th>
-                          Id
+                          ID
                         </th>
                     <th>
-                      Name
+                      NAME
                     </th>
                     <th>
-                      Location
+                      LOCATION
                     </th>
                     <th>
-                      Email
+                      EMAIL
                     </th>
                     <th>
-                    Usertype
+                    USER TYPE
                     </th>
                     <th>
-                     Gender 
+                     GENDER 
                     </th>
+                    <th>
+                      PHONE
+                     </th>
+                     <th>
+                      SERVICE TYPE
+                     </th>
                    
                   </thead>
                   <tbody>
@@ -68,6 +74,12 @@
                       </td>
                        <td>
                         {{ $row->gender}}
+                       </td>
+                       <td>
+                        {{ $row->phone}}
+                       </td>
+                       <td>
+                        {{ $row->servicetype}}
                        </td>
                       
                     </tr>
