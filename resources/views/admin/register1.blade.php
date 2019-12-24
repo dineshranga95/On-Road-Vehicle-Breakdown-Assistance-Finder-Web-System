@@ -11,7 +11,7 @@
 
 <div class="row bg-dark">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card bg-dark text-white">
             <div class="card-header">
               <h4 class="card-title">Registered Mechanics</h4>
               @if (session('status'))
@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table">
+                <table class="table text-center">
                   <thead class=" text-primary">
                       <th>
                           ID
@@ -78,7 +78,7 @@
                        <td>
                         {{ $row->phone}}
                        </td>
-                       <td>
+                       <td >
                         {{ $row->servicetype}}
                        </td>
                       

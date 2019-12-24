@@ -11,7 +11,7 @@
 
 <div class="row">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card bg-dark text-white">
             <div class="card-header">
               <h4 class="card-title">Registered Users</h4>
               @if (session('status'))
@@ -22,7 +22,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table">
+                <table class="table text-center">
                   <thead class=" text-primary">
                       <th>
                           Id
