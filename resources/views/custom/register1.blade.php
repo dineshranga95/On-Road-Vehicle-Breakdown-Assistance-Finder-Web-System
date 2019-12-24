@@ -43,7 +43,12 @@
                     <th>
                       Gender 
                      </th>
-                   
+                     <th>
+                      Requested 
+                     </th>
+                     <th>
+                      Action 
+                     </th>
                   </thead>
                   <tbody>
                       @foreach ($user as $row)
@@ -71,7 +76,20 @@
                        <td>
                         {{ $row->gender}}
                        </td>
-                      
+                       <td>
+                         @if( $row->Is_requested)
+                        <button class="btn btn-success">Requested</button>
+                       @else
+                       <button class="btn btn-warning">Not Requested</button>
+                      @endif
+                      </td>
+                      <td>
+                        @if( $row->Is_requested)
+                      <a href="/markasnotrequested/{{$row->id}}" class="btn btn-danger">Mark As Not Requested </a>
+                      @else
+                      <a href="/markasrequested/{{$row->id}}" class="btn btn-primary">Mark As Requested </a>
+                       @endif
+                    </td>
                     </tr>
                     @endforeach
                 </tbody>                      

@@ -54,6 +54,8 @@ Route::group(['middleware'=>['auth','custom']], function(){
     }); 
     
     Route::get('/melist','custom\CustomerController@register');
+    Route::get('/markasrequested/{id}','custom\CustomerController@updaterequested');
+    Route::get('/markasnotrequested/{id}','custom\CustomerController@updatenotrequested');
     
 });
 
