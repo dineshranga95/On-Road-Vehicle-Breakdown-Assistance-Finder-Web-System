@@ -11,6 +11,11 @@ class CustomerController extends Controller
         $user=User::where('usertype','mechanic')->get();        
         return view ('custom.register1')->with ('user',$user);
     }
+    public function search(Request $request){
+        $search=$request->get('search');
+        $posts=DB::table('')->where('name','like','%'.search.'%')->paginate(5);
+        return view ('index',['posts' =>$posts] );
+    }
     public function updaterequested($id) {
        $row=User::find($id);
        $row->Is_requested=1;

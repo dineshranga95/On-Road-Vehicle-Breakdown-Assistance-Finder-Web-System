@@ -44,6 +44,7 @@ Route::group(['middleware'=>['auth','mechanic']], function(){
     Route::get('/regrole','mechanic\dashboardcontroller@register');
     Route::get('/reg-edit','mechanic\dashboardcontroller@edit');
     Route::POST('/reg-update','mechanic\dashboardcontroller@update');
+    Route::get('/request','mechanic\dashboardcontroller@request');
    
 
     
@@ -56,7 +57,7 @@ Route::group(['middleware'=>['auth','custom']], function(){
     Route::get('/melist','custom\CustomerController@register');
     Route::get('/markasrequested/{id}','custom\CustomerController@updaterequested');
     Route::get('/markasnotrequested/{id}','custom\CustomerController@updatenotrequested');
-    
+    Route::get('/search','custom\CustomerController@search');
 });
 
 

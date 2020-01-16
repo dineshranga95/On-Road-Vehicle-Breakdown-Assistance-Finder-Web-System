@@ -57,6 +57,9 @@ class dashboardcontroller extends Controller
             return redirect()->back();
         }
     }
-   
+    public function request(){
+        $user=User::all();        
+        return view ('mechanic.request');
+    } 
      
 }

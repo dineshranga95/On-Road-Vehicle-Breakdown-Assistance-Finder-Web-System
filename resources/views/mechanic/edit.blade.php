@@ -11,8 +11,8 @@
 <div class="container ">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-secondary text-white"  style="margin:10px">
-                <div class="card-header">{{ __('Update profile') }}</div>
+            <div class="card bg-dark text-white"  style="margin:10px">
+                <div class="card-header " style="font-size:30px;">{{ __('Update profile') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="/reg-update">

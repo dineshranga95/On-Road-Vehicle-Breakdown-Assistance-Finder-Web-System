@@ -13,16 +13,27 @@
         <div class="col-md-12">
           <div class="card bg-dark text-white">
             <div class="card-header">
-              <h4 class="card-title">Registered Mechanics</h4>
+              <h4 class="card-title">Registered Mechanics </h4>
+              <div class="col-md-4 ">
+                <form action="/search" method="get">
+                  <div class="input-group">
+                    <input type="search" class="form-control" name="search">
+                    <span class="input-group-prepend">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                    </span>
+                  </div>
+                </form>
+              </div>     
               @if (session('status'))
               <div class="alert alert-success" role="alert">
                   {{ session('status') }}
               </div>
           @endif
+         
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table">
+                <table class="table text-center">
                   <thead class=" text-primary">
                       
                     <th>

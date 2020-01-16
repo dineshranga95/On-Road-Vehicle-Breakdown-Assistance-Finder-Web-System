@@ -2,7 +2,7 @@
 
 
 @section('title')
-   user profile
+   Requested list
 @endsection
         
 
@@ -12,10 +12,9 @@
 <div class="row justify-content-center">
         <div class="col-md-7">
           <div class="card bg-dark text-white " >
-            <div class="row justify-content-center" style="margin-top:50px;"><img src="user1.png" alt="" style="width:200px;height:200px;"></div>
-            
+                        
             <div class="card-header">
-              <h4 class="card-title text-center text-warning"><u>User Profile</u></h4>
+              <h4 class="card-title text-center text-warning"><u>User Request</u></h4>
               @if (session('status'))
               <div class="alert alert-success" role="alert">
                   {{ session('status') }}
@@ -77,14 +76,7 @@
                         {{ Auth::user()->servicetype }}
                         </td>                      
                         </tr>
-                   <tr> 
-                     <td></td> 
-                        <td class="text-right" >
-                        <a href="/reg-edit" class="btn btn-success">Edit details</a>
-                      </td>
-                       
-                     
-                    </tr>
+                  
                 </tbody>                      
                                         
                        
