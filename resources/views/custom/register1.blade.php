@@ -14,14 +14,15 @@
           <div class="card bg-dark text-white">
             <div class="card-header">
               <h4 class="card-title">Registered Mechanics </h4>
-              <div class="col-md-4 ">
-                <form action="/search" method="get">
+              <div class="col-md-4">
+                <form action="/search" method="get" role="search">
+                  {{csrf_field()}}
                   <div class="input-group">
                     <input type="search" class="form-control" name="search">
-                    <span class="input-group-prepend">
+                    <span class="input-group-btn">
                       <button type="submit" class="btn btn-primary">Search</button>
                     </span>
-                  </div>
+                   </div>
                 </form>
               </div>     
               @if (session('status'))
@@ -32,7 +33,9 @@
          
             </div>
             <div class="card-body">
+              
               <div class="table-responsive">
+               
                 <table class="table text-center">
                   <thead class=" text-primary">
                       
@@ -75,7 +78,7 @@
                          </td>
                       <td>
                           {{ $row->email}}
-                       </td>
+                       </td> 
                            
                       
                       <td>
@@ -107,6 +110,8 @@
                                         
                        
                 </table>
+                
+               
               </div>
             </div>
           </div>
