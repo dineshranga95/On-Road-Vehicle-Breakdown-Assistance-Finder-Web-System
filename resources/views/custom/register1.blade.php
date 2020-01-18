@@ -13,14 +13,14 @@
         <div class="col-md-12">
           <div class="card bg-dark text-white">
             <div class="card-header">
-              <h4 class="card-title">Registered Mechanics </h4>
-              <div class="col-md-4">
+              <div style="float:left;"><h4 class="card-title">Registered Mechanics </h4></div>
+              <div class="col-md-6  " style="float:right;">
                 <form action="/search" method="get" role="search">
                   {{csrf_field()}}
-                  <div class="input-group">
-                    <input type="search" class="form-control" name="search">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn btn-primary">Search</button>
+                  <div class="input-group  " >
+                   <div style="float:left ;" class="col-md-8 mt-2"> <input type="search" class="form-control" name="search" placeholder="choose your location......"></div>
+                    <span class="input-group-prepend  " style="float:right;" >
+                      <button type="submit" class="btn btn-primary ">Search</button>
                     </span>
                    </div>
                 </form>
