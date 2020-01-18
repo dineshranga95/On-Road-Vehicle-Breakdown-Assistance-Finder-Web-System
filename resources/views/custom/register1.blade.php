@@ -37,7 +37,7 @@
               <div class="table-responsive">
                
                 <table class="table text-center">
-                  <thead class=" text-primary">
+                  <thead class="text-primary">
                       
                     <th>
                       Name

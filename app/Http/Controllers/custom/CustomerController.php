@@ -14,7 +14,7 @@ class CustomerController extends Controller
 
     public function search(Request $request){
         $search=$request->get('search');
-        $user=DB::table('user')->where('location','like','%'.$search.'%');
+        $user=DB::table('users')->where('location','like','%'.$search.'%')->get();
         return view ('custom.register1',['user'=>$user] );
     } 
     public function updaterequested($id) {
