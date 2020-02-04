@@ -11,7 +11,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- Styles -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
       </head>
     <body>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
@@ -23,7 +25,23 @@
                   
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
-                                        
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{  url('/about')}}">{{ __('About Us') }}</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Vehicle Repairs
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">ABS Repairs</a>
+                          <a class="dropdown-item" href="#">Dual Cluch Repairs</a>
+                          <a class="dropdown-item" href="#">Other Repairs</a>
+                        </div>
+                      </li>
+                                   
                       </ul>
                       <ul class="navbar-nav ml-auto">
                                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
@@ -51,7 +69,7 @@
                           
                       </div>
                       <div class="col-md-4">
-                          <img src="4.webp" alt="" style="float:left;width:350px;" class="mx-auto d-block"> 
+                          <img src="4.webp" alt="" style="float:left;height:250px; width:350px;" class="mx-auto d-block"> 
                         </div>
                         
                         <div class="col-md-4">
@@ -62,10 +80,10 @@
                           <img src="7.webp" alt=""style="float:right;width:250px;" class="mx-auto d-block"> 
                         </div>
                         <div class="col-md-4">
-                          <img src="8.webp" alt=""style="width:250px;" class="mx-auto d-block"> 
+                          <img src="22.jpg" alt=""style="width:250px;height:250px;" class="mx-auto d-block"> 
                         </div>
                         <div class="col-md-4">
-                          <img src="6.webp" alt=""style="float:left;width:250px;" class="mx-auto d-block"> 
+                          <img src="26.jpg" alt=""style="float:left;width:250px; height:250px;" class="mx-auto d-block"> 
                         </div>
                                                      
                    </div>  
