@@ -33,14 +33,46 @@
                     </div>
                   </nav>
 
-                <div class="row justify-content-center" >
-                  <div class="col-10"style="font-size:84px;">
+                <div class="row justify-content-center mt-5" >
+                  <div class="col-10"style="font-size:94px; text-align:center;">
                       ON ROAD VEHICLE REPAIR
                   </div>                   
                   </div>
-               <div class="row justify-content-center">
+                  <div class="row justify-content-center" >
+                    <div class="col-10"style="font-size:40px; text-align:center;color:blue;">
+                        Our Services 
+                    </div> 
+                    <div class="col-10"style="font-size:25px; text-align:center; ">
+                      Quality and Functionality, Guaranteed
+                    </div>                       
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                      <div class="col-md-2">
+                          
+                      </div>
+                      <div class="col-md-4">
+                          <img src="4.webp" alt="" style="float:left;width:350px;" class="mx-auto d-block"> 
+                        </div>
+                        
+                        <div class="col-md-4">
+                          <img src="6.webp" alt=""style="float:left;width:250px;height:250px;" class="mx-auto d-block"> 
+                        </div>
+
+                        <div class="col-md-4">
+                          <img src="7.webp" alt=""style="float:right;width:250px;" class="mx-auto d-block"> 
+                        </div>
+                        <div class="col-md-4">
+                          <img src="8.webp" alt=""style="width:250px;" class="mx-auto d-block"> 
+                        </div>
+                        <div class="col-md-4">
+                          <img src="6.webp" alt=""style="float:left;width:250px;" class="mx-auto d-block"> 
+                        </div>
+                                                     
+                   </div>  
+                                 
+               <div class="row justify-content-center mt-5">
                   <div class="col-md-12">
-                      <img src="3.jpg" alt="" width="100%">  
+                      <img src="3.jpg" alt="" width="95%" height="80%" style="margin-left:3%;">  
                     </div>                
                </div>  
                                
