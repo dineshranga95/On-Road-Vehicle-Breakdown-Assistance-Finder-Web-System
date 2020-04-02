@@ -17,22 +17,26 @@
               <div class="col-md-6  " style="float:right;">
                 <form action="/search" method="get" role="search">
                   {{csrf_field()}}
-                  <div class="input-group  " >
+                  
+                  <div class="input-group" >
                    <div style="float:left ;" class="col-md-8 mt-2"> <input type="search" class="form-control" name="search" placeholder="choose your location......"></div>
-                    <span class="input-group-prepend  " style="float:right;" >
-                      <button type="submit" class="btn btn-primary ">Search</button>
+                    <span class="input-group-prepend " style="float:right;" >
+                      <button type="submit" class="btn btn-primary ">SEARCH</button>
                     </span>
                    </div>
+                  
+                  </div>
+                  @if(session('success'))
+                  <div class="alert " role="alert" style="color:red; float:left">
+                      {{session('success')}}
+                      
+                      @endif
                 </form>
               </div>     
-              @if (session('status'))
-              <div class="alert alert-success" role="alert">
-                  {{ session('status') }}
-              </div>
-          @endif
+             
          
             </div>
-            <div class="card-body">
+            <div class="card-body ">
               
               <div class="table-responsive">
                
@@ -40,7 +44,7 @@
                   <thead class="text-primary">
                       
                     <th>
-                      Name
+                        Name
                     </th>
                     <th>
                       Location
@@ -58,18 +62,18 @@
                       Gender 
                      </th>
                      <th>
-                      Requested 
-                     </th>
+                      REQUESTED
+                      </th>
                      <th>
-                      Action 
-                     </th>                    
+                     ACTION
+                 
+                     </th>
+                    
                   </thead>
-                  <tbody>
+                  <tbody class="text-white">
                       @foreach ($user as $row)
-                          
-                     
                     <tr>
-                      
+                     
                       <td>
                      {{ $row->name}}
                       </td>
@@ -78,9 +82,7 @@
                          </td>
                       <td>
                           {{ $row->email}}
-                       </td> 
-                           
-                      
+                       </td>
                       <td>
                        {{ $row->servicetype}}
                       </td>
@@ -90,28 +92,26 @@
                        <td>
                         {{ $row->gender}}
                        </td>
+                      
                        <td>
-                         @if( $row->Is_requested)
-                        <button class="btn btn-success">Requested</button>
-                       @else
-                       <button class="btn btn-warning">Not Requested</button>
-                      @endif
-                      </td>
-                      <td>
-                        @if( $row->Is_requested)
-                      <a href="/markasnotrequested/{{$row->id}}" class="btn btn-danger">Mark As Not Requested </a>
+                        @if($row->Is_requested )
+                       <button class="btn btn-success">Requested</button>
                       @else
-                      <a href="/markasrequested/{{$row->id}}" class="btn btn-primary">Mark As Requested </a>
-                       @endif
-                    </td>
+                      <button class="btn btn-warning">Not Requested</button>
+                     @endif
+                     </td>
+                     <td>
+                       @if($row->Is_requested)
+                     <a href="/markasnotrequested/{{$row->id}}" class="btn btn-danger">Mark As Not Requested </a>
+                     @else
+                     <a href="/markasrequested/{{$row->id}}" class="btn btn-primary">Mark As Requested </a>
+                      @endif
+                   </td>
+                       </div>
                     </tr>
                     @endforeach
-                </tbody>                      
-                                        
-                       
+                </tbody>
                 </table>
-                
-               
               </div>
             </div>
           </div>
