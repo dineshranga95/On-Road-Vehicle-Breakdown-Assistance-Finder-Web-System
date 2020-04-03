@@ -4,10 +4,14 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Admin;
+use App\Mechanic;
+use App\Requests;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +32,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+ 
+
 
     /**
      * Create a new controller instance.
@@ -38,6 +43,8 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:mechanic');
     }
 
     /**
@@ -46,18 +53,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            
-            'name' => ['required', 'string', 'max:255'],
-            'location' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'usertype'=> ['sometimes','string'],  
-            'gender'=> ['sometimes','string'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+    
 
     /**
      * Create a new user instance after a valid registration.
@@ -65,16 +61,69 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+   
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    public function showMechanicRegisterForm()
+    {
+        return view('auth.register', ['url' => 'mechanic']);
+    }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            
+            'name' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'gender'=> ['sometimes','string'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'location' =>  $request['location'],
+            'email' => $request['email'],
+            'gender' => $request['gender'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('login/admin');
+    }
+    protected function createMechanic(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $mechanic = Mechanic::create([
+            'name' => $request['name'],
+            'location' =>  $request['location'],
+            'email' => $request['email'],
+            'gender' =>  $request['gender'],
+            'password' => Hash::make($request['password']),
+        ]);
+        $requests = new Requests();
+            $requests->mechanic_id = $mechanic->id;
+            $requests->mechanic_email =  $request->email;
+            $requests->save();
+
+        return redirect()->intended('login/mechanic');
+
+    }
+     protected function create(array $data)
     {
         return User::create([
             'name' => $data['name'],
             'location' => $data['location'],
             'email' => $data['email'],
-            'usertype' => $data['usertype'],             
             'gender' => $data['gender'],
             'password' => Hash::make($data['password']),
         ]);
+        return redirect()->intended('login');
     }
+
 }
- 

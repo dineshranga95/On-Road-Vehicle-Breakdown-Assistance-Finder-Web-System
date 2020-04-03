@@ -7,18 +7,19 @@
         <title>laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+
+        
         <!-- Styles -->
-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}" defer></script>
       </head>
     <body>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
               <div class="container">
-                    <a class="navbar-brand" href="#">ORVR</a>
+                    <a class="navbar-brand" href="{{ url('/') }}">ORVR</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
@@ -44,15 +45,34 @@
                                    
                       </ul>
                       <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-                                <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>                    
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ route('login') }}">Customer</a>
+                            <a class="dropdown-item" href="{{ url("login/mechanic") }}">Mechanic</a>
+                            <a class="dropdown-item" href="{{ url("login/admin") }}">Admin</a>
+                          </div>
+                        </li>                
+                                 
+                                <li class="nav-item dropdown">
+                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Register
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('register') }}">Customer</a>
+                                    <a class="dropdown-item" href="{{ url("register/mechanic") }}">Mechanic</a>
+                                    <a class="dropdown-item" href="{{ url("register/admin") }}">Admin</a>
+                                  </div>
+                                </li>                   
                         </ul>
                       </div>
                     </div>
                   </nav>
 
-                <div class="row justify-content-center " >
-                  <div class="col-10"style="font-size:94px; text-align:center;">
+                <div class="row justify-content-center mb-3 mt-3" >
+                  <div class="col-10"style="font-size:85px; text-align:center;">
                       ON ROAD VEHICLE REPAIR
                   </div>                   
                   </div>
@@ -60,8 +80,8 @@
                    </div>  
                                  
                <div class="row justify-content-center ">
-                  <div class="col-md-12">
-                      <img src="3.jpg" alt="" width="95%" height="100%" style="margin-left:3%;">  
+                  <div class="col-md-12 ">
+                      <img src="3.jpg" alt="" width="100%" height="90%" >  
                     </div>                
                </div>  
                                

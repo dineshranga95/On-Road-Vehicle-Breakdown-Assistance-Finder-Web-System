@@ -8,93 +8,124 @@
 
 
 @section('content')
-<div class="container ">
-<div class="row justify-content-center">
-        <div class="col-md-7">
-          <div class="card bg-dark text-white " >
-            <div class="row justify-content-center" style="margin-top:50px;"><img src="user1.png" alt="" style="width:200px;height:200px;"></div>
-            
-            <div class="card-header">
-              <h4 class="card-title text-center text-warning"><u>User Profile</u></h4>
-              @if (session('status'))
-              <div class="alert alert-success" role="alert">
-                  {{ session('status') }}
-              </div>
-          @endif
-            </div>
-            <div class="card-body ">
-              <div class="table-responsive">
-                <table class="table text-center">
-                  
-                  <tbody >                 
-                     
-                    <tr>
-                      <th>
-                         NAME
-                     </th>
-                      <td >
-                        {{ Auth::user()->name }}
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>
-                        EMAIL
-                    </th>
-                     <td>
-                       {{ Auth::user()->email }}
-                     </td>
-                    </tr>
-                    <tr>
-                     <th>
-                        LOCATION
-                    </th>
-                     <td>
-                       {{ Auth::user()->location }}
-                     </td>
-                                           
-                    </tr>
-                    <tr>
-                    <th>
-                       GENDER
-                    </th>
-                    <td>
-                    {{ Auth::user()->gender }}
-                    </td>                      
-                    </tr>
-                    <tr>
-                      <th>
-                         PHONE
-                      </th>
-                      <td>
-                      {{ Auth::user()->phone }}
-                      </td>                      
-                      </tr>
-                      <tr>
-                        <th>
-                           SERVICE TYPE
-                        </th>
-                        <td>
-                        {{ Auth::user()->servicetype }}
-                        </td>                      
-                        </tr>
-                   <tr> 
-                     <td></td> 
-                        <td class="text-right" >
-                        <a href="/reg-edit" class="btn btn-success">Edit details</a>
-                      </td>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card bg-dark text-white"  >
+                <div class="card-header text-warning mt-3" style="font-size:25px;">{{ __('UPDATE PROFILE') }}</div>
+
+                <div class="card-body mt-4" style="font-size:16px;">
+                    <form method="POST" action="/mechanicupdate">
+                        @csrf
+                        @if(session('success'))
+                        <div class="alert " role="alert" style="color:red;">
+                            {{session('success')}}
+                        </div>
+                        @endif
+                        <div class="form-group row ml-2">
+                        <label for="name"  class="col-md-4 col-form-label  text-white">{{ __('NAME') }}</label>
+
+                            <div class="col-md-7">
+                                <input id="name" value="{{Auth::user()->name}}" type="text" class="text-black bg-white form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+  
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row ml-2">
+                                <label for="location" class="col-md-4 col-form-label  text-white">{{ __('LOCATION') }}</label>
+    
+                                <div class="col-md-7">
+                                    <input id="location" value="{{Auth::user()->location}}" type="text" class="text-black bg-white form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location" autofocus>
+    
+                                    @error('location')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        <div class="form-group row ml-2">
+                            <label for="email" class="col-md-4 col-form-label  text-white">{{ __('EMAIL ADDRESS') }}</label>
+
+                            <div class="col-md-7">
+                                <input id="email" value="{{Auth::user()->email}}" type="email" class="text-black bg-white form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                        
-                     
-                    </tr>
-                </tbody>                      
-                                        
-                       
-                </table>
-              </div>
+                         
+                        <div class="form-group row ml-2">
+                                <label for="gender" class="col-md-4 col-form-label  text-white">{{ __('GENDER') }}</label>
+    
+                                <div class="col-md-7">
+                                <select value="{{Auth::user()->gender}}" type="text" class="text-black bg-white form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender">
+                                    <option value="{{Auth::user()->gender}}" >{{Auth::user()->gender}}</option>
+                                    <option value="Male" >Male</option>
+                                  <option value="Female" >Female</option>
+                                </select>                                  
+                                </div>
+                            </div>
+                            <div class="form-group row ml-2">
+                              <label for="phone" class="col-md-4 col-form-label  text-white">{{ __('PHONE') }}</label>
+  
+                              <div class="col-md-7">
+                                  <input id="phone" value="{{Auth::user()->phone}}" type="phone" class="text-black bg-white form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+  
+                                  @error('phone')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                                  @enderror
+                              </div>
+
+                          </div>
+                          <div class="form-group row ml-2">
+                            <label for="servicetype" class="col-md-4 col-form-label  text-white">{{ __('SERVICE TYPE') }}</label>
+
+                            <div class="col-md-7">
+                            <select value="{{Auth::user()->servicetype}}" type="text" class="text-black bg-white form-control @error('servicetype') is-invalid @enderror" name="servicetype" value="{{ old('servicetype') }}" required autocomplete="servicetype">
+                                <option value="{{Auth::user()->servicetype}}" >{{Auth::user()->servicetype}}</option>
+                                <option value="2 Wheeler" >2 Wheeler</option>
+                              <option value="3 Wheeler" >3 Wheeler</option>
+                              <option value="4 Wheeler" >4 Wheeler</option>
+                              <option value="All" >All</option>
+                            </select>                                  
+                            </div>
+                        </div>
+                            <div class="form-group row ml-2">
+                                <label for="" class="col-md-4 col-form-label  text-white">{{ __('REGESTRATION DATE') }}</label>
+    
+                                <div class="col-md-7">
+                                    <input id="" value="{{Auth::user()->created_at}}" type="" class="text-black bg-white form-control">
+    
+                                   
+                                </div>
+                            </div>
+                           
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('UPDATE') }}
+                                </button>
+                                <a href="/regrole" class="btn btn-danger">CANCEL</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
-      </div>  
-    </div> 
+    </div>
+</div>
 @endsection
 
 

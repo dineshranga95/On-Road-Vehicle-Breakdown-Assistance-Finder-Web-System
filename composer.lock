@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2329a24ebbddae0d989f382a39978c33",
+    "content-hash": "38e7695d36a144498bd82eb4e7ee3374",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -678,63 +678,6 @@
             "time": "2019-08-07T15:10:45+00:00"
         },
         {
-            "name": "laravel/ui",
-            "version": "v1.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/ui.git",
-                "reference": "57e2361b55ed1bc80ff0b3258b9713626fb38a2b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/ui/zipball/57e2361b55ed1bc80ff0b3258b9713626fb38a2b",
-                "reference": "57e2361b55ed1bc80ff0b3258b9713626fb38a2b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.8|^6.0",
-                "illuminate/filesystem": "~5.8|^6.0",
-                "illuminate/support": "~5.8|^6.0",
-                "php": "^7.1.3"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Laravel\\Ui\\UiServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Laravel\\Ui\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "Laravel UI utilities and presets.",
-            "keywords": [
-                "laravel",
-                "ui"
-            ],
-            "time": "2019-10-11T12:16:52+00:00"
-        },
-        {
             "name": "league/flysystem",
             "version": "1.0.57",
             "source": {
@@ -901,16 +844,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.25.2",
+            "version": "2.25.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f"
+                "reference": "d07636581795383e2fea2d711212d30f941f2039"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/443fe5f1498147e0fbc792142b5dc43e2e8a533f",
-                "reference": "443fe5f1498147e0fbc792142b5dc43e2e8a533f",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d07636581795383e2fea2d711212d30f941f2039",
+                "reference": "d07636581795383e2fea2d711212d30f941f2039",
                 "shasum": ""
             },
             "require": {
@@ -964,7 +907,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2019-10-14T14:18:59+00:00"
+            "time": "2019-10-20T11:05:44+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3334,6 +3277,60 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "laravel/ui",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "bb64fca681566ca94457d490a00f899516e75664"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/bb64fca681566ca94457d490a00f899516e75664",
+                "reference": "bb64fca681566ca94457d490a00f899516e75664",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.8|^6.0",
+                "illuminate/filesystem": "~5.8|^6.0",
+                "illuminate/support": "~5.8|^6.0",
+                "php": "^7.1.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "time": "2020-02-13T21:12:28+00:00"
         },
         {
             "name": "mockery/mockery",

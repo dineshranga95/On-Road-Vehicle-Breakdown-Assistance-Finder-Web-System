@@ -46,6 +46,24 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+            'hash' => false,
+        ],
+        'mechanic' => [
+            'driver' => 'session',
+            'provider' => 'mechanics',
+        ],
+        'mechanic-api' => [
+            'driver' => 'token',
+            'provider' => 'mechanics',
+            'hash' => false,
+        ],
     ],
 
     /*
@@ -69,6 +87,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
+        ],
+        'mechanics' => [
+            'driver' => 'eloquent',
+            'model' => App\Mechanic::class,
         ],
 
         // 'users' => [
@@ -97,6 +123,17 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+         'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+        
+        ],
+        'mechanics' => [
+            'provider' => 'mechanics',
+            'table' => 'password_resets',
+            'expire' => 15,
         ],
     ],
 

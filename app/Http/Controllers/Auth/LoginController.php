@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Http\Request;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -26,19 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = '/home';
-    protected function redirectTo(){
-         if(Auth::user()->usertype=='admin'){
-              return 'dashboard';
-
-         }elseif(Auth::user()->usertype=='customer'){
-            return 'dashboard2'; 
-         }elseif(Auth::user()->usertype=='mechanic'){
-            return 'dashboard1'; 
-         }else {
-             return 'home'; 
-         }
-    } 
+    
 
     /**
      * Create a new controller instance.
@@ -48,5 +36,45 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+         $this->middleware('guest:mechanic')->except('logout');
+    }
+    public function showAdminLoginForm()
+    {
+        return view('auth.login', ['url' => 'admin']);
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/admin');
+        }
+        $request->session()->flash('success','These credentials do not match our records.!');
+        return redirect()->back();
+    }
+    public function showMechanicLoginForm()
+    {
+        return view('auth.login', ['url' => 'mechanic']);
+    }
+
+    public function mechanicLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('mechanic')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/mechanic');
+        }
+        $request->session()->flash('success','These credentials do not match our records.!');
+                return redirect()->back();
     }
 }

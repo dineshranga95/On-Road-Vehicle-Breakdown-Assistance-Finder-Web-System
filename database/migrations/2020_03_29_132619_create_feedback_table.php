@@ -18,7 +18,7 @@ class CreateFeedbackTable extends Migration
             $table->integer('request_id')->unsigned()->nullable();
            
             $table->longText('description');
-            $table->boolean('Is_solved')->default(0);
+           
             $table->timestamps();
         });
     }

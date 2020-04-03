@@ -3,7 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\User;
+use App\Requests;
+
 
 class Requests extends Model
 {
@@ -17,7 +18,7 @@ class Requests extends Model
     protected $table='requests';
 
     protected $fillable = [
-        'user_id','is_requested', 
+        'user_id','mechanic_id','mechanic_email', 'address','required_service' ,'description','is_requested','is_accepted' 
     ];
 
     /**
@@ -25,5 +26,9 @@ class Requests extends Model
      *
      * @var array
      */
+    public function mechanic()
+    {
+        return $this->belongsTo('Mechanic');
+    }
    
 }

@@ -1,15 +1,19 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
-<div class="container ">
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-light"  style="margin:10px">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card bg-light mb-5"  style="margin:10px">
+                <div class="card-header " style="font-size:25px;"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                    <div class="card-body mb-3">
+                        @isset($url)
+                        <form method="POST" action='{{ url("register/$url") }}' aria-label="{{ __('Register') }}">
+                        @else
+                        <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                        @endisset
+                            @csrf
 
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -25,19 +29,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                                <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
-    
-                                <div class="col-md-6">
-                                    <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location" autofocus>
-    
-                                    @error('location')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
+                            <label for="location" class="col-md-4 col-form-label text-md-right">{{ __('Location') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="location" type="text" class="form-control @error('location') is-invalid @enderror" name="location" value="{{ old('location') }}" required autocomplete="location" autofocus>
+
+                                @error('location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -52,26 +55,16 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="usertype" class="col-md-4 col-form-label text-md-right">{{ __('Usertype') }}</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
 
                             <div class="col-md-6">
-                            <select class="form-control" name="usertype">
-                              <option value="mechanic" >Mechanic</option>
-                              <option value="customer" >Customer</option>
-                            </select>                               
+                            <select class="form-control" name="gender">
+                              <option value="Male" >Male</option>
+                              <option value="Female" >Female</option>
+                            </select>                                  
                             </div>
                         </div>
-                         
-                        <div class="form-group row">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
-    
-                                <div class="col-md-6">
-                                <select class="form-control" name="gender">
-                                  <option value="Male" >Male</option>
-                                  <option value="Female" >Female</option>
-                                </select>                                  
-                                </div>
-                            </div>
+
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
