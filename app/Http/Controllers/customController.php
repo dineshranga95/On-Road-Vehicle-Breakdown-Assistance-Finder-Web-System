@@ -6,6 +6,7 @@ use App\Admin;
 use App\Mechanic;
 use App\Requests;
 use Auth;
+use Image;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -25,7 +26,10 @@ class CustomController extends Controller
     }
     public function search(Request $request){
         $search=$request->get('search');
-        $user=DB::table('mechanics')->where('location','like','%'.$search.'%')->get();
+        $user=DB::table('mechanics')->where('location','like','%'.$search.'%')
+        ->join('requests','mechanics.id','=','requests.mechanic_id')
+        ->select('requests.*','mechanics.name','mechanics.email','mechanics.location','mechanics.servicetype','mechanics.gender','mechanics.phone')
+        ->where('requests.user_id','=', Auth::user()->id) ->get();
         return view ('customer.list',['user'=>$user] );
     }
    
@@ -47,6 +51,7 @@ class CustomController extends Controller
                     'location' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'email', 'max:255'],                                
                      'gender'=> ['sometimes','string'],
+                     'avatar'=>'image|mimes:jpeg,png,jpg|max:2048',
                      
                 ]);
             }else{
@@ -54,10 +59,26 @@ class CustomController extends Controller
                 return redirect()->intended('/profile2'); 
             }
             if($validate){
+                if($request->hasFile('avatar')){
+                    //$avatar=$request->file('avatar');
+                    $avatarname=$user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+                    $request->avatar->storeAs('avatars',$avatarname);
+                   
+                    $user->avatar=$avatarname;
+                    $user->name=$request['name'];
+                    $user->email=$request['email'];
+                    $user->location=$request['location'];
+                    $user->gender=$request['gender'];
+    
+                    $user->save();
+                    $request->session()->flash('success','Your details have now been updated!');
+                    return redirect()->intended('/profile2');
+                }
                 $user->name=$request['name'];
                 $user->email=$request['email'];
                 $user->location=$request['location'];
                 $user->gender=$request['gender'];
+
                 $user->save();
                 $request->session()->flash('success','Your details have now been updated!');
                 return redirect()->intended('/profile2');

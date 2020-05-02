@@ -54,6 +54,9 @@ Route::get('/about', function () {
         Route::get('/request', 'MechanicController@request');
         Route::get('/approve/{id}','MechanicController@updateaccepted');       
        // Route::POST('/savechanges', 'MechanicController@savechanges');
+       Route::get('/mecfeedback', 'MessageController@mecfeedback');
+       Route::get('/usermessage/{user_id}', 'MessageController@usermessage');
+       Route::POST('/usermessagesave/{request_id}', 'MessageController@usermessagesave');
     });
     Route::group(['middleware' => 'auth:web'], function () {
         Route::get('/melist','CustomController@list');
@@ -70,7 +73,8 @@ Route::get('/about', function () {
         Route::get('/markasrequested/{id}','CustomController@updaterequested');
         Route::get('/markasnotrequested/{id}','CustomController@updatenotrequested');
         Route::get('/feedback', 'MessageController@feedback');
-        Route::get('/message/{id}', 'MessageController@message');
+        Route::get('/message/{mechanic_id}', 'MessageController@message');
+        Route::POST('/messagesave/{request_id}', 'MessageController@messagesave');
     });
     
         

@@ -6,6 +6,7 @@ use App\Admin;
 use App\Mechanic;
 use App\Requests;
 use App\Feedback ;
+use Image;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Hash;
@@ -30,7 +31,7 @@ class MechanicController extends Controller
                      'gender'=> ['sometimes','string'],
                      'phone' =>  ['required', 'max:10', 'min:'], 
                      'servicetype' => ['sometimes','string'],
-
+                     'avatar'=>'image|mimes:jpeg,png,jpg|max:2048',
                      
                 ]);
             }else{
@@ -38,6 +39,22 @@ class MechanicController extends Controller
                 return redirect()->intended('/regrole'); 
             }
             if($validate){
+                if($request->hasFile('avatar')){
+                    //$avatar=$request->file('avatar');
+                    $avatarname=$user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+                    $request->avatar->storeAs('avatars',$avatarname);
+                   
+                    $user->avatar=$avatarname;
+                    $user->name=$request['name'];
+                    $user->email=$request['email'];
+                    $user->location=$request['location'];
+                    $user->phone=$request['phone'];
+                    $user->servicetype=$request['servicetype'];
+                    $user->gender=$request['gender'];
+                    $user->save();
+                    $request->session()->flash('success','Your details have now been updated!');
+                    return redirect()->intended('/regrole');
+                }
                 $user->name=$request['name'];
                 $user->email=$request['email'];
                 $user->location=$request['location'];
@@ -101,6 +118,7 @@ class MechanicController extends Controller
             $row ->save();
             $feedback=new Feedback();
             $feedback->request_id=$row->id;
+            $feedback->send_by_mechanic_id=auth::id();
             $feedback->description="request is accepted";
             $feedback->save();
             return redirect()->back();

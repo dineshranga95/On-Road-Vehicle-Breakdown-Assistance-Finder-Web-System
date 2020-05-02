@@ -18,8 +18,8 @@
       </head>
     <body>
             <nav class="navbar navbar-expand-sm navbar-dark bg-dark shadow-sm">
-              <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">ORVR</a>
+              <div class="container"  style="font-size:20px;">
+                    <a class="navbar-brand"  style="font-size:30px;" href="{{ url('/') }}">ORVR</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>

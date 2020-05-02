@@ -25,19 +25,21 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="green">
+    <div class="sidebar" data-color="green" style="font-size:18px;">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">        
-        <div class="simple-text logo-normal" style="margin-left:50px;">ORVR | MECHANIC</div>        
+        <div class="simple-text logo-normal" style="text-align:center">ORVR | MECHANIC</div>        
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+          <img src="/storage/avatars/{{auth::guard('mechanic')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+            <div style="text-align:center; color:black;"><b>  {{  Auth::guard('mechanic')->user()->name }}</b> </div>
         <li class="{{'mechanic' ==request()->path() ?'active' :''}}">
             <a href="/mechanic">
               <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <p>home</p>
             </a>
           </li>
           
@@ -56,9 +58,9 @@
             </a>
           </li>
           
-          <li class="{{'feedback' ==request()->path() ?'active' :''}}">
-            <a href="/feedback">
-              <i class="now-ui-icons text_caps-small"></i>
+          <li class="{{'mecfeedback' ==request()->path() ?'active' :''}}">
+            <a href="/mecfeedback">
+              <i class="now-ui-icons ui-2_chat-round"></i>
               <p>Feedback   </p>
             </a>
           </li>
@@ -90,14 +92,15 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
+                 
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <li class="nav-item dropdown" style="font-size:20px;">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                  
                     {{  Auth::guard('mechanic')->user()->name }} <span class="caret"></span>
                 </a>
 

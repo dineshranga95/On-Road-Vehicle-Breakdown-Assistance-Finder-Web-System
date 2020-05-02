@@ -18,7 +18,7 @@ class CreateMechanicsTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('location');
-            
+            $table->string('avatar')->default('16.png');
             $table->string('gender');
             $table->string('servicetype')->nullable();    
             $table->timestamp('email_verified_at')->nullable();

@@ -25,19 +25,21 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="orange">
+    <div class="sidebar" data-color="orange"  style="font-size:18px;">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
     <div class="logo">
-        <div class="simple-text logo-normal" style="margin-left:50px;">ORVR | ADMIN</div>     
+        <div class="simple-text logo-normal" style="text-align:center">ORVR | ADMIN</div>     
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
+          <img src="/storage/avatars/{{auth::guard('admin')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+          <div style="text-align:center; color:black;"><b>   {{  Auth::guard('admin')->user()->name }}</b> </div>
         <li class="{{'admin' ==request()->path() ?'active' :''}}">
             <a href="/admin">
               <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <p>home</p>
             </a>
           </li>
           <li class="{{'regcustomers' ==request()->path() ?'active' :''}}">
@@ -48,16 +50,11 @@
           </li>
           <li class="{{'regmechanics' ==request()->path() ?'active' :''}}">
         <a href="/regmechanics">
-              <i class="now-ui-icons location_map-big"></i>
+          <i class="now-ui-icons ui-2_settings-90"></i>
               <p>Registered Mechanics</p>
             </a>
           </li>
-          <li class="{{'aboutus' ==request()->path() ?'active' :''}}">
-            <a href="/aboutus">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>About Us</p>
-            </a>
-          </li>
+         
           <li class="{{'profile1' ==request()->path() ?'active' :''}}">
             <a href="/profile1">
               <i class="now-ui-icons users_single-02"></i>
@@ -72,7 +69,7 @@
           </li>
           <li class="{{'feedback' ==request()->path() ?'active' :''}}">
             <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons ui-2_chat-round"></i>
               <p>Feedback   </p>
             </a>
           </li>
@@ -104,14 +101,15 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
+               
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <li class="nav-item dropdown" style="font-size:20px;">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                  
                     {{  Auth::guard('admin')->user()->name }} <span class="caret"></span>
                 </a>
 

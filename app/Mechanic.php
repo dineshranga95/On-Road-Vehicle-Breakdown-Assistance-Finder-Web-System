@@ -41,5 +41,9 @@ class Mechanic extends Authenticatable
     {
         return $this->hasMany('Requests'); 
     }
+    public function latestMessageTo()
+{
+   return $this->hasOne('Feedback', 'send_by_mechani_id')->orderBy('created_at', 'desc')->latest();
+}
    
 }

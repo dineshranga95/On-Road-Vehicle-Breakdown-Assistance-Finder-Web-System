@@ -25,44 +25,46 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="blue">
+    <div class="sidebar" data-color="blue"  style="font-size:18px;">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <div class="simple-text logo-normal" style="margin-left:50px;">ORVR | CUSTOMER</div>     
+        <div class="simple-text logo-normal" style="text-align:center">ORVR | CUSTOMER</div>     
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-        <li class="{{'home' ==request()->path() ?'active' :''}}">
+          <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+            <div style="text-align:center; color:black;"><b> {{ Auth::user()->name }}</b> </div>
+          <li class="{{'home' ==request()->path() ?'active' :''}}">
             <a href="/login">
               <i class="now-ui-icons design_app"></i>
-              <p>Dashboard</p>
+              <p>home</p>
             </a>
           </li>
-          <li class="{{'about' ==request()->path() ?'active' :''}}">
+          <li class="{{'aboutus' ==request()->path() ?'active' :''}}">
             <a href="/aboutus">
-              <i class="now-ui-icons design_bullet-list-67"></i>
+              <i class="now-ui-icons education_atom"></i>
               <p>About us </p>
             </a>
           </li>
           
           <li class="{{'melist' ==request()->path() ?'active' :''}}">
         <a href="/melist">
-              <i class="now-ui-icons location_map-big"></i>
+              <i class="now-ui-icons  design_bullet-list-67"></i>
               <p>Mechanic list</p>
             </a>
           </li>
           <li class="{{'requestlist' ==request()->path() ?'active' :''}}">
             <a href="/requestlist">
-                  <i class="now-ui-icons location_map-big"></i>
+                  <i class="now-ui-icons ui-2_settings-90"></i>
                   <p>Requested mechanics</p>
                 </a>
               </li>
              
           <li class="{{'feedback' ==request()->path() ?'active' :''}}">
             <a href="/feedback">
-              <i class="now-ui-icons ui-1_bell-53"></i>
+              <i class="now-ui-icons ui-2_chat-round"></i>
               <p>feedback  </p>
             </a>
           </li>
@@ -91,36 +93,37 @@
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-5">
               <li class="nav-item">
                 <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
+                  
+                  
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
               </li>
-              <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }} <span class="caret"></span>
+              <li class="nav-item dropdown" style="font-size:20px;">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" style="top:10;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 
+                  {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  
+                <div class="dropdown-menu dropdo wn-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="/profile2" >
                 
-                   {{ __('My Profile') }}
+                   {{ __(' Profile') }}
                </a>
                <a class="dropdown-item" href="/changepwd">
                       {{ __('Change Password') }}
                   </a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();"> 
+                      {{ __('Logout') }}
+                  </a>
 
-                    
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
                 </div>

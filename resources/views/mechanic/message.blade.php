@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master1')
 
 
 @section('title')
@@ -28,7 +28,7 @@
                 <li  style="list-style-type:none;">
                   
                   <div class="mt-3">
-                 @if($row->send_by_mechanic_id==NULL)
+                 @if($row->send_by_user_id==NULL)
                     <div class="col-md-10" style="float:right"> <span style="float:right"><button  class="btn btn-secondary">{{$row->description}}</button></div> 
                    @else 
                    <div class="col-md-10" style="float:left">  <img src="/storage/avatars/{{$row->avatar}} " alt="" style="width:50px; height:50px;top:0px;right:90px;border-radius:50%; margin-right:20px;" ><span><button disabled="disabled">{{$row->description}}</button></div> 
@@ -38,7 +38,7 @@
                   </li> 
                   <div class="card-footer text-muted" style="position:fixed;bottom:40px;">
                     @if ($loop->last)
-                    <form action="/messagesave/{{$row->request_id}}" method="POST">
+                    <form action="/usermessagesave/{{$row->request_id}}" method="POST">
                       @csrf
                       <table class="$table" style="margin-left:100px;">
                         <tr ><td  ><textarea name="body"style="width:250px;" ></textarea></td><td><input type="submit" value="send" ></td></tr>

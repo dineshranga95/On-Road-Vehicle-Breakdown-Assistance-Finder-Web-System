@@ -12,17 +12,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-dark text-white"  >
-                <div class="card-header text-warning mt-3" style="font-size:25px;">{{ __('UPDATE PROFILE') }}</div>
+                <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:200px; height:200px; float:left;border-radius:50%;margin:20px 40px 0px;" >
+               <h2 class="text-warning mtn"  style="margin: 50px 0 0 0;padding: 0 0 0 0;">{{auth::user()->name}}'s profile </h2>
 
-                <div class="card-body mt-4" style="font-size:16px;">
-                    <form method="POST" action="/adminupdate">
+                <div class="card-body" style="font-size:16px;">
+                    <form method="POST" action="/adminupdate" enctype="multipart/form-data">
                         @csrf
+                        
+                        <label for="" class="text-white">Update Profile Image</label>
+                        <input type="file" name="avatar" >
+                        
                         @if(session('success'))
-                        <div class="alert " role="alert" style="color:red;">
+                        <div class="alert justify-content-center" role="alt" style="color:red;">
                             {{session('success')}}
                         </div>
-                        @endif
-                        <div class="form-group row ml-2">
+                        @endif      
+                        <div class="form-group row ml-2 mt-5">
                         <label for="name"  class="col-md-4 col-form-label  text-white">{{ __('NAME') }}</label>
 
                             <div class="col-md-7">

@@ -13,8 +13,8 @@
         <div class="col-md-12">
           <div class="card">
             <div class="row justify-content-center mb-3 mt-3" >
-              <div class="col-10"style="font-size:60px; text-align:center;">
-                  ON ROAD VEHICLE REPAIR
+              <div class="col-10"style="font-size:60px; text-align:center;"><b>
+                  ON ROAD VEHICLE REPAIR</b>
               </div>                   
               </div>    
             <div class="card-header">

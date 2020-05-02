@@ -5,6 +5,7 @@ use App\User;
 use App\Admin;
 use App\Mechanic;
 use Auth;
+use Image;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Formcontroller;
@@ -44,13 +45,27 @@ class AdminController extends Controller
                     'location' => ['required', 'string', 'max:255'],
                     'email' => ['required', 'string', 'email', 'max:255'],                                
                      'gender'=> ['sometimes','string'],
-                     
+                     'avatar'=>'image|mimes:jpeg,png,jpg|max:2048',
                 ]);
             }else{
                 $request->session()->flash('success','You cannot change your email address!');
                 return redirect()->intended('/profile1'); 
             }
             if($validate){
+                if($request->hasFile('avatar')){
+                    //$avatar=$request->file('avatar');
+                    $avatarname=$user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+                    $request->avatar->storeAs('avatars',$avatarname);
+                   
+                    $user->avatar=$avatarname;
+                    $user->name=$request['name'];
+                    $user->email=$request['email'];
+                    $user->location=$request['location'];
+                    $user->gender=$request['gender'];
+                    $user->save();
+                    $request->session()->flash('success','Your details have now been updated!');
+                    return redirect()->intended('/profile1');
+                }
                 $user->name=$request['name'];
                 $user->email=$request['email'];
                 $user->location=$request['location'];

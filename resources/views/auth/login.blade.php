@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div  style="background-image:url('45.jpg')">
+<div class="container "  style="height:550px; padding-top:60px;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card bg-light" style="margin:50px">
-                <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
+            <div class="card bg-dark text-white mt-5 mb-5" style="margin:50px">
+                <div class="card-header"style="font-size:25px;"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Login') }}</div>
                 
 
-                <div class="card-body pb-5 pt-5" style="color:black;">
+                <div class="card-body pb-5 pt-5 text-white" style="color:black;">
                     <div class="">
                         @if(session('success'))
                         <div class="alert " role="alert" style="color:red; ">
@@ -81,6 +82,7 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center" style="font-size:84px;">ON ROAD VEHICLE REPAIR</div>
+    </div>
+    
 </div>
 @endsection

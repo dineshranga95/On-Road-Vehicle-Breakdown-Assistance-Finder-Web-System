@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div  style="background-image:url('images (5).jpg')">
+<div class="container" >
     <div class="row justify-content-center">
+       
         <div class="col-md-8">
-            <div class="card bg-light mb-5"  style="margin:10px">
+            <div class="card bg-dark text-white mb-5 mt-5"  style="margin:10px">
                 <div class="card-header " style="font-size:25px;"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
 
                     <div class="card-body mb-3">
@@ -93,6 +95,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                            </div>
                             </div>
                         </div>
                     </form>
