@@ -10,24 +10,29 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-10 col-xl-8">
             <div class="card bg-dark text-white"  >
-                <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:200px; height:200px; float:left;border-radius:50%;margin:20px 40px 0px;" >
-               <h2 class="text-warning"  style="margin: 50px 0 0 0;padding: 0 0 0 0;">{{auth::user()->name}}'s profile </h2>
-
+                
                 <div class="card-body" style="font-size:16px;" >
                     <form method="POST" action="/update" enctype="multipart/form-data">
                         @csrf
-                        
+                        <div class="ml-4 mt-3">
+                        <img src="uploads/avatars/{{auth::user()->avatar}} " alt="" class="float-sm-left mr-sm-5" style="width:170px; height:170px;border-radius:50%;" >
+                        <h2 class="text-warning"  style="">{{auth::user()->name}}'s profile </h2>
+
                         <label for="" class="text-white">Update Profile Image</label>
                         <input type="file" name="avatar" >
                         
+                        </div>
+                        
                         @if(session('success'))
-                        <div class="alert justify-content-center" role="alt" style="color:red;">
+                        <div class="alert justify-content-center mb-0 pb-0" role="alt" style="color:red;">
                             {{session('success')}}
                         </div>
-                        @endif      
-                        <div class="form-group row ml-2 mt-5">
+                        @endif 
+                        <br>
+                        <div class="pt-md-4 pt-xl-0">
+                        <div class="form-group row ml-2 mt-xl-5">
                         <label for="name"  class="col-md-4 col-form-label  text-white">{{ __('NAME') }}</label>
 
                             <div class="col-md-7">
@@ -91,13 +96,15 @@
                             </div>
                            
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 offset-md-4 offset-2">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('UPDATE') }}
                                 </button>
                                 <a href="/profile2" class="btn btn-danger">CANCEL</a>
                             </div>
                         </div>
+                        </div>    
+                        
                     </form>
                 </div>
             </div>

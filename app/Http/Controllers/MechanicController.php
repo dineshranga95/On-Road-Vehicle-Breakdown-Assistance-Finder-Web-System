@@ -41,8 +41,11 @@ class MechanicController extends Controller
             if($validate){
                 if($request->hasFile('avatar')){
                     //$avatar=$request->file('avatar');
-                    $avatarname=$user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-                    $request->avatar->storeAs('avatars',$avatarname);
+                    $avataruploaded=request()->file('avatar');
+                    $avatarname=$user->id.'_avatar'.time().'.'.$avataruploaded->getClientOriginalExtension();
+                    $avatarpath =public_path('/uploads/avatars/');
+                    $avataruploaded->move($avatarpath,$avatarname);
+                   
                    
                     $user->avatar=$avatarname;
                     $user->name=$request['name'];

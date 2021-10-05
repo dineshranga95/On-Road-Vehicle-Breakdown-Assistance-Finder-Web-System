@@ -16,10 +16,11 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            
             $table->integer('mechanic_id')->unsigned()->nullable(); 
-            $table->foreign('mechanic_id')->references('id')->on('mechanics');
-            $table->boolean('Is_requested')->default(0); 
+            
+            $table->boolean('Is_requested')->default(0);
+            $table->integer('mechanic_email')->unsigned()->nullable(); 
             $table->boolean('Is_solved')->default(0); 
             $table->timestamps();
         });

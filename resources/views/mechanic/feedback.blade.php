@@ -22,7 +22,7 @@
                 @foreach ($user as $row)
                 <tr >
                   <td rowspan="2" style="padding-top:20px;padding-left:30px;">
-                    <img src="/storage/avatars/{{$row->avatar}} " alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%; margin-right:50px;" >
+                    <img src="/uploads/avatars/{{$row->avatar}} " alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%; margin-right:50px;" >
                   </td>
                   <td style="font-size:25px;padding-right:180px; vertical-align:bottom"><a href="/usermessage/{{$row->user_id}}" style="text-decoration:none">{{$row->name}}</a></td>
                   <td rowspan="2" >{{$row->updated_at}}</td>

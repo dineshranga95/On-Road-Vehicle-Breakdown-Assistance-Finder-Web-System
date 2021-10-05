@@ -29,12 +29,13 @@
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
+    
     <div class="logo">
         <div class="simple-text logo-normal" style="text-align:center">ORVR | ADMIN</div>     
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <img src="/storage/avatars/{{auth::guard('admin')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+          <img src="/uploads/avatars/{{auth::guard('admin')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
           <div style="text-align:center; color:black;"><b>   {{  Auth::guard('admin')->user()->name }}</b> </div>
         <li class="{{'admin' ==request()->path() ?'active' :''}}">
             <a href="/admin">
@@ -61,12 +62,7 @@
               <p>User Profile</p>
             </a>
           </li>
-          <li class="{{'tablelist' ==request()->path() ?'active' :''}}">
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
+          
           <li class="{{'feedback' ==request()->path() ?'active' :''}}">
             <a href="./typography.html">
               <i class="now-ui-icons ui-2_chat-round"></i>
@@ -156,7 +152,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  
+<script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/now-ui-dashboard.js" type="text/javascript"></script>
   @yield('scripts')
 </body>
 

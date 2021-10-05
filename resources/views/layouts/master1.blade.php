@@ -34,7 +34,7 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <img src="/storage/avatars/{{auth::guard('mechanic')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+          <img src="/uploads/avatars/{{auth::guard('mechanic')->user()->avatar}}" alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
             <div style="text-align:center; color:black;"><b>  {{  Auth::guard('mechanic')->user()->name }}</b> </div>
         <li class="{{'mechanic' ==request()->path() ?'active' :''}}">
             <a href="/mechanic">
@@ -145,7 +145,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/now-ui-dashboard.js" type="text/javascript"></script>
   @yield('scripts')
 </body>
 

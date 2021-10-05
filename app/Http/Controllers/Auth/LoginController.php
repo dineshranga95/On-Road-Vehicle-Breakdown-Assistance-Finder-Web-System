@@ -78,3 +78,4 @@ class LoginController extends Controller
                 return redirect()->back();
     }
 }
+

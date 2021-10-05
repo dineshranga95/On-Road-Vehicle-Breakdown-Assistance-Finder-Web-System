@@ -17,7 +17,7 @@ class Mechanic extends Authenticatable
      */
     protected $guard = 'mechanic';
     protected $fillable = [
-        'name','location', 'email','gender','phone','servicetype', 'password',
+        'name','location', 'email','gender','avatar','phone','servicetype', 'password',
     ];
 
     /**

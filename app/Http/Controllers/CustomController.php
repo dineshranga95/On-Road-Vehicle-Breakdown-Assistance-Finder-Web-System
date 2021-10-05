@@ -14,7 +14,7 @@ use App\Http\Controllers\Formcontroller;
 class CustomController extends Controller
 {
     public function list(){
-       
+        
         $user=DB::table('requests')
             ->join('mechanics','requests.mechanic_id','=','mechanics.id')
            ->select('requests.*','mechanics.name','mechanics.email','mechanics.location','mechanics.servicetype','mechanics.gender','mechanics.phone')
@@ -22,6 +22,7 @@ class CustomController extends Controller
             ->get();
         
         return view ('customer.list')->with ('user',$user); 
+       
        
     }
     public function search(Request $request){
@@ -61,8 +62,11 @@ class CustomController extends Controller
             if($validate){
                 if($request->hasFile('avatar')){
                     //$avatar=$request->file('avatar');
-                    $avatarname=$user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-                    $request->avatar->storeAs('avatars',$avatarname);
+                    $avataruploaded=request()->file('avatar');
+                    $avatarname=$user->id.'_avatar'.time().'.'.$avataruploaded->getClientOriginalExtension();
+                    $avatarpath =public_path('/uploads/avatars/');
+                    $avataruploaded->move($avatarpath,$avatarname);
+                   
                    
                     $user->avatar=$avatarname;
                     $user->name=$request['name'];
@@ -136,9 +140,8 @@ class CustomController extends Controller
         return redirect('/melist');
     }*/
     public function requestlist(){
-        
+               
         $user=Requests::where('user_id',Auth::user()->id)
-        ->where('Is_requested',1)
         ->where('Is_requested',1)
         ->join('mechanics','requests.mechanic_id','=','mechanics.id')
         ->select('requests.*','mechanics.name','mechanics.phone')->get(); 

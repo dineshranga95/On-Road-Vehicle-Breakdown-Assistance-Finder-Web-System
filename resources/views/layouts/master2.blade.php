@@ -34,7 +34,7 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
+          <img src="/uploads/avatars/{{auth::user()->avatar}} " alt="" style="width:80px; height:80px;top:0px;right:90px;border-radius:50%;margin:10px 90px;" > 
             <div style="text-align:center; color:black;"><b> {{ Auth::user()->name }}</b> </div>
           <li class="{{'home' ==request()->path() ?'active' :''}}">
             <a href="/login">
@@ -74,7 +74,7 @@
     </div>
     <div class="main-panel" id="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
@@ -94,15 +94,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
             
             <ul class="navbar-nav mr-5">
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  
-                  
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
+             
               <li class="nav-item dropdown" style="font-size:20px;">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" style="top:10;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  
@@ -149,7 +141,9 @@
     </div>
   </div>
   <!--   Core JS Files   -->
- 
+  <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+<script src="../assets/js/now-ui-dashboard.js" type="text/javascript"></script>
 </body>
 
 </html>

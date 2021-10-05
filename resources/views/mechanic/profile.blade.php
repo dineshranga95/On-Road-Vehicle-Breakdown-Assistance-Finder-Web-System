@@ -4,15 +4,13 @@
 @section('title')
    user profile
 @endsection
-        
-
-
+ 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-dark text-white"  >
-                <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:200px; height:200px; float:left;border-radius:50%;margin:20px 40px 0px;" >
+                <img src="/uploads/avatars/{{auth::user()->avatar}} " alt="" style="width:150px; height:150px; float:left;border-radius:50%;margin:20px 40px 0px;" >
                <h2 class="text-warning" style="margin: 50px 0 0 0;padding: 0 0 0 0;">{{auth::user()->name}}'s profile </h2>
 
                 <div class="card-body " style="font-size:16px;">

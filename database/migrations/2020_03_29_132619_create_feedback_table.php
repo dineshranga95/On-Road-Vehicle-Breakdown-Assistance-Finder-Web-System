@@ -15,8 +15,8 @@ class CreateFeedbackTable extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('request_id')->unsigned()->nullable();
-           
+            //$table->integer('request_id')->unsigned()->nullable();
+            $table->foreign('request_id')->references('id')->on('requests');
             $table->longText('description');
            
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateFeedbackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('request_acces');
+        Schema::dropIfExists('feedback');
     }
 }

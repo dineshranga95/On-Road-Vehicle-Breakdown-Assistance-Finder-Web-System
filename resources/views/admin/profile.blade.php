@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card bg-dark text-white"  >
-                <img src="/storage/avatars/{{auth::user()->avatar}} " alt="" style="width:200px; height:200px; float:left;border-radius:50%;margin:20px 40px 0px;" >
+                <img src="/uploads/avatars/{{auth::user()->avatar}} " alt="" style="width:200px; height:200px; float:left;border-radius:50%;margin:20px 40px 0px;" >
                <h2 class="text-warning mtn"  style="margin: 50px 0 0 0;padding: 0 0 0 0;">{{auth::user()->name}}'s profile </h2>
 
                 <div class="card-body" style="font-size:16px;">
@@ -26,9 +26,10 @@
                         <div class="alert justify-content-center" role="alt" style="color:red;">
                             {{session('success')}}
                         </div>
-                        @endif      
+                        @endif 
+                        <div class="pt-xl-5">
                         <div class="form-group row ml-2 mt-5">
-                        <label for="name"  class="col-md-4 col-form-label  text-white">{{ __('NAME') }}</label>
+                        <label for="name"  class="col-md-4 col-form-label text-white">{{ __('NAME') }}</label>
 
                             <div class="col-md-7">
                                 <input id="name" value="{{Auth::user()->name}}" type="text" class="text-black bg-white form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -98,6 +99,8 @@
                                 <a href="/profile1" class="btn btn-danger">CANCEL</a>
                             </div>
                         </div>
+                        </div>    
+                        
                     </form>
                 </div>
             </div>

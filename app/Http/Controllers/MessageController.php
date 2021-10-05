@@ -13,7 +13,7 @@ class MessageController extends Controller
 {
     public function feedback(){
          $user=Feedback::join('requests','requests.id','=','feedback.request_id')
-         ->orderBy('updated_at', 'desc')
+         ->orderBy('requests.updated_at', 'desc')
          ->join('mechanics','requests.mechanic_id','=','mechanics.id')
          ->where('user_id',Auth::user()->id)
          ->select('requests.user_id','requests.mechanic_id','feedback.*','mechanics.name','mechanics.avatar')->get(); 
@@ -41,7 +41,7 @@ class MessageController extends Controller
 
 public function mecfeedback(){
   $user=Feedback::join('requests','requests.id','=','feedback.request_id')
-  ->orderBy('updated_at', 'desc')
+  ->orderBy('requests.updated_at', 'desc')
   ->join('users','requests.user_id','=','users.id')
   ->where('mechanic_id',Auth::user()->id)
   ->select('requests.user_id','requests.mechanic_id','feedback.*','users.name','users.avatar')->get(); 

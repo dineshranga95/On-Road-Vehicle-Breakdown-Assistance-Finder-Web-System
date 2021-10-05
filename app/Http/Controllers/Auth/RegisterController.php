@@ -77,7 +77,7 @@ class RegisterController extends Controller
             
             'name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'unique:admins', 'unique:mechanics'],
             'gender'=> ['sometimes','string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -92,8 +92,10 @@ class RegisterController extends Controller
             'location' =>  $request['location'],
             'email' => $request['email'],
             'gender' => $request['gender'],
+            'avatar'=>$request['gender'].'.png',
             'password' => Hash::make($request['password']),
         ]);
+    
         return redirect()->intended('login/admin');
     }
     protected function createMechanic(Request $request)
@@ -104,11 +106,12 @@ class RegisterController extends Controller
             'location' =>  $request['location'],
             'email' => $request['email'],
             'gender' =>  $request['gender'],
+            'avatar'=>$request['gender'].'.png',
             'password' => Hash::make($request['password']),
         ]);
         $requests = new Requests();
             $requests->mechanic_id = $mechanic->id;
-            $requests->mechanic_email =  $request->email;
+            $requests->mechanic_email =  $mechanic->email;
             $requests->save();
 
         return redirect()->intended('login/mechanic');
@@ -121,8 +124,11 @@ class RegisterController extends Controller
             'location' => $data['location'],
             'email' => $data['email'],
             'gender' => $data['gender'],
+            'avatar'=>$data['gender'].'.png',
             'password' => Hash::make($data['password']),
+            
         ]);
+       
         return redirect()->intended('login');
     }
 

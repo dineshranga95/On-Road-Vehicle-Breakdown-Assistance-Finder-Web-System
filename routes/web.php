@@ -30,6 +30,7 @@ Route::get('/about', function () {
     Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
     Route::post('/register/mechanic', 'Auth\RegisterController@createMechanic');
 
+    
     Route::view('/home', 'home')->middleware('auth');
     Route::view('/admin', 'admin');
     Route::view('/mechanic', 'mechanic');
